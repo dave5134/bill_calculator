@@ -1,0 +1,80 @@
+
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>IT 581 lab 13</title>
+    
+   <style type="text/css">
+    body {background-color: white; color: black;  }
+    label{
+	   display:block;
+	   font-weight:bold;
+	   text-align:right;
+	   width:100px;
+	   float:left;
+	   }
+	input{
+		font-size:.875em;
+		padding:4px 2px;
+		border:solid 1px #aacfe4;
+		width: 200px;
+		margin:2px 0 10px 5px;
+		}
+
+  </style>
+                    
+  
+
+  <!-- IT 581 Lab Exercise 13        -->
+  <!-- Author:                           -->
+  <!-- Date:                             -->
+  <!-- Notes:                            -->   
+    
+    
+</head>
+<body>
+<h1>Lab 13 - Tip calculator</h1>
+<p>This page lets you calculate a tip amount and total bill to pay.</p> 
+<hr />
+<p>Enter your restaurant bill amount and the percentage you want to tip.</p>
+<p>The report will show both the amount to tip and the total cost of the bill + tip.</p> 
+<form name="frmTipCalc" action="">
+<fieldset>
+<legend>Tip Calculator</legend>
+<label for = "txtBillAmount">Bill:</label>
+ <input type="text" name="txtBillAmount" value=""><br>
+<label for = "txtPercent">Tip percent:</label> 
+<input type="text" name="txtPercent" value="">%<br>
+<textarea name="araResults" rows="4" cols="60">
+Bill	   Tip Percent      Total Cost
+</textarea><br>
+<input type="button"
+         name="btn_calc_tip"
+         value="Calculate Tip and Total"
+         onclick="    
+         
+          var bill, tipPercent, tip, totCost ;
+         
+        var bill=parseFloat(document.frmTipCalc.txtBillAmount.value);
+        
+        var tipPercent=parseFloat(document.frmTipCalc.txtPercent.value);
+         
+        var tip= (tipPercent/100) * bill;
+        
+        var totCost= bill + tip;
+        
+        
+        document.frmTipCalc.araResults.value = 
+        document.frmTipCalc.araResults.value +
+        bill + '\t\t' + tipPercent + '\t\t' + totCost + '\n';
+         
+         " />
+                 
+      
+                
+<input type="reset" />
+</form>
+</body>
+</html>
